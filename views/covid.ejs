@@ -10,9 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Monda&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
-    <link rel="stylesheet" type="text/css" href="estilo.css">
-    <script type="text/javascript" src="javascript.js"></script>
+    <link rel="stylesheet" href="./css/covid.css">
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="stylesheet" href="./css/noticia.css">
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/maisvistas.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/header.css">
     <title>Covid-19</title>
 </head>
 
@@ -20,43 +24,47 @@
 
     <header>
         <div class="menu">
-            <a href="../../index.html">HOME</a>
+            <button class="menubtn">Menu</button>
+            <a href="../noticias">| Noticias</a>
+
+            <div class="menu-content">
+                <%- include ('../menu.ejs') -%>
+            </div>
 
         </div>
-        <div class="newsdotcon"><a href="../../index">NewsDotCom</a></div>
-        <div class="paddingBuscador">
-            <input class="buscador" type="text" name="text" placeholder="BUSCAR">
-        </div>
+        <h1> <a href="/../index">NewsDotCom</a></h1>
+        <form action="">
+            <div class="paddingBuscador">
+                <input class="buscador" type="text" name="text" placeholder="BUSCAR">
+
+                <button type="submit" style="display: none;">Click</button>
+            </div>
+        </form>
     </header>
     <main> 
 
-    <div class="slideshow-container">
-
-        <div class="mySlides fade">
-            <img src="./imagens/coronavirus-covid-20.jpg" style="width:100%; border-radius:8px;">
-            <div class="text">Covid-19</div>
+    <div class="container-a">
+        <div class="side">
+            <div class="noticiaside">
+                Anúncios
+            </div>
+            <div class="maisvistas">
+                <a href="">
+                    <div class="maisvistasnumero"></div>
+                </a>
+                <a href="">
+                    <div class="maisvistastitulo">Anúncie já</div>
+                </a>
+            </div>
+            <div class="maisvistas">
+                <a href="">
+                    <div class="maisvistasnumero"></div>
+                </a>
+                <a href="">
+                    <div class="maisvistastitulo">Anúncie já</div>
+                </a>
+            </div>
         </div>
-
-        <div class="mySlides fade">
-            <img src="./imagens/coronavirus-covid-22.jpg" style="width:100%;  border-radius:8px;">
-            <div class="text">Covid-19</div>
-        </div>
-
-        <div class="mySlides fade">
-            <img src="./imagens/coronavirus-covid-21.jpg" style="width:100%;  border-radius:8px;">
-            <div class="text">Covid-19</div>
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    </div>
-    <br>
-
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
 
@@ -86,7 +94,17 @@
 
     <h3 class="titulomapa">Mapa de casos por continente</h3>
 
-
+    <ul class="continentes">
+        <li id="america">
+            <a href="#america" a href="#america" title="area da america"></a><span> Casos: 58.250.000</span></li>
+        <li id="europa">
+            <a href="#europa"></a><span>Casos: 41.323.000</span></li>
+        <li id="asia">
+            <a href="#asia"></a><span> Casos: 30.675.000 </span></li>
+        <li id="africa">
+            <a href="#africa"></a><span>Casos: 4.317.900</span></li>
+        <li id="oceania">
+            <a href="#oceania"></a><span>Casos: 58.600</span></li>
 
     <ul class="legenda">
 
@@ -98,108 +116,38 @@
     </ul>
     </div>
 
-    <ul class="continentes">
-        <li id="america"><a href="#america" title="area da america">América</a><span>Casos: 58.250.000</span></li>
-        <li id="europa">
-            <a href="#europa"></a><span>Casos: 41.323.000</span></li>
-        <li id="asia">
-            <a href="#asia"></a><span> Casos: 30.675.000</span></li>
-        <li id="africa">
-            <a href="#africa"></a><span>Casos: 4.317.900</span></li>
-        <li id="oceania">
-            <a href="#oceania"></a><span>Casos: 58.600</span></li>
+   
     </ul>
     <h3 class="titulotabela">Dados do Covid-19 no mundo</h3>
 
     <table class="tabeladados" width="545">
         <tr>
             <td width="101" height="40">Total de mortes</td>
-            <td width="113">2.920.000</td>
+            <td width="113"><%= coviddados.mortes %></td>
         </tr>
         <tr>
             <td height="40">Total de infectados</td>
-            <td>135.000.000</td>
+            <td><%= coviddados.infectados %></td>
         </tr>
         <tr>
             <td height="40">Recuperados</td>
-            <td>79.800.000</td>
+            <td><%= coviddados.recuperados %></td>
         </tr>
         <tr>
             <td height="40">Vacinados</td>
-            <td>980.000.000</td>
+            <td><%= coviddados.vacinados %></td>
         </tr>
     </table>
-
-
-
 
 </div>
 
     <div style="position:fixed; bottom:0px; right:5px; height: 60px;">
         <a href="#" title="topo da pagina">
-            <img src="./imagens/up-arrow (1).png" border="0"></a>
+            <img src="" border="0"></a>
     </div>
 
-    <div class="container-a">
-        <div class="side">
-            <div class="noticiaside">
-                Noticias mais lidas
-            </div>
-            <div class="maisvistas">
-                <a href="">
-                    <div class="maisvistasnumero">1.</div>
-                </a>
-                <a href="">
-                    <div class="maisvistastitulo">Título da Notícia</div>
-                </a>
-            </div>
-            <div class="maisvistas">
-                <a href="">
-                    <div class="maisvistasnumero">2.</div>
-                </a>
-                <a href="">
-                    <div class="maisvistastitulo">Título da Notícia</div>
-                </a>
-            </div>
-            <div class="maisvistas">
-                <a href="">
-                    <div class="maisvistasnumero">3.</div>
-                </a>
-                <a href="">
-                    <div class="maisvistastitulo">Título da Notícia</div>
-                </a>
-            </div>
-            <div class="maisvistas">
-                <a href="">
-                    <div class="maisvistasnumero">4.</div>
-                </a>
-                <a href="">
-                    <div class="maisvistastitulo">Título da Notícia</div>
-                </a>
-            </div>
-            <div class="maisvistas">
-                <a href="">
-                    <div class="maisvistasnumero">5.</div>
-                </a>
-                <a href="">
-                    <div class="maisvistastitulo">Título da Notícia</div>
-                </a>
-            </div>
-            <div class="maisvistas">
-                <a href="">
-                    <div class="maisvistasnumero">6.</div>
-                </a>
-                <a href="">
-                    <div class="maisvistastitulo">Título da Notícia</div>
-                </a>
-            </div>
-        </div>
-    </div>
+   
 </main>
-
-<footer class="rodapé">
-    <p> Juntos vamos derrotar o vírus</p>
-</footer>
 
     <script>
         var slideIndex = 1;

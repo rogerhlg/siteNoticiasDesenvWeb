@@ -18,6 +18,14 @@ const noticia = {
     foto: "alface.png"
 }
 
+const tabeladados = {
+    mortes: "2.920.000",
+    infectados:"135.000.000",
+    recuperados:"79.800.000",
+    vacinados:"980.000.000"
+}
+
+
 app.get(['/', '/index', '/home'], (req, res) => {
     res.render("index", { noticias: dados });
 });
@@ -33,6 +41,11 @@ app.get("/noticia/:id", (req, res) => {
     let noticia = dados[id];
     res.render("noticia", {noticia: noticia});
  });
+
+ app.get("/covid", (req, res) => {
+    res.render("covid", {coviddados: tabeladados});
+ });
+
 
 app.listen(8000, function() {
     console.log('Servidor rodando!')
